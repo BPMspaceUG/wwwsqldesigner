@@ -186,6 +186,8 @@ SQL.Designer.prototype.setCookie = function(obj) {
 
 SQL.Designer.prototype.getOption = function(name) {
 	var c = this.getCookie();
+	var r = Math.floor(100000 + Math.random() * 900000);
+	var t = "%R_fk_"+r;
 	if (name in c) { return c[name]; }
 	/* defaults */
 	switch (name) {
@@ -196,7 +198,7 @@ SQL.Designer.prototype.getOption = function(name) {
 		case "snap": return 0;
 		case "showsize": return 0;
 		case "showtype": return 0;
-		case "pattern": return "%R_%T";
+		case "pattern": return t;
 		case "hide": return false;
 		case "vector": return true;
 		case "style": return "material-inspired";
